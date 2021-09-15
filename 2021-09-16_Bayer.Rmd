@@ -120,6 +120,25 @@ coldata %>%
 
 ---
 
+## The data tsunami
+
+<br />
+```{r fig.width=10, fig.height=5, out.width='85%'}
+metadata <- readr::read_csv("~/Downloads/SraRunTable.txt")
+metadata %>%
+  mutate(year = lubridate::year(ReleaseDate)) %>%
+  count(year) %>%
+  ggplot(., aes(x=year, y=n)) +
+  geom_col() +
+  theme_bw() +
+  labs(
+    title = "Number of BioSamples for each year",
+    x = "Year", y = "# of samples"
+  )
+```
+
+---
+
 class: inverse, center, middle
 
 ### Creating expression atlases from public RNA-seq studies
