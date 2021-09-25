@@ -4,6 +4,8 @@ but the major change is bringing Roboto front and centre
 */
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+
 /* 
 I'm in two minds as to whether to default to Roberto Mono or stick with 
 Source Code Pro (internet says Source Code Pro is better)
@@ -12,11 +14,33 @@ https://www.slant.co/versus/224/287/~source-code-pro_vs_roboto-mono
 */ 
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
 
+.n { font-family: 'Roboto'; font-size: 90%; }
+
+.cit {
+  font-family: 'Roboto';
+  font-size: 80%;
+}
+
+.bgb {
+  background-color: #003366;
+  color: #E5E7E9;
+}
+
+.bgp {
+  background-color: #660066;
+  color: #E5E7E9;
+}
+
+.bgr {
+  background-color: #990000;
+  color: #E5E7E9;
+}
+
 body { 
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Atkinson Hyperlegible', 'Roboto', Arial, sans-serif;
 }
 h1, h2, h3 {
-  font-family: 'Roboto Condensed';
+  font-family: 'Atkinson Hyperlegible', 'Roboto Condensed';
   font-weight: normal;
 }
 
@@ -51,6 +75,7 @@ h1, h2, h3 {
 }
 
 .footnote {
+  font-family: 'Roboto';
   position: absolute;
   bottom: 0;
   padding-right: 8em; /* to avoid the page numbering */ 

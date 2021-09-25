@@ -359,9 +359,9 @@ slides > slide {
 */
  
 .title-slide {
-  background-image: url(Logo_VENANCIO_RG_white.png);
-  background-position: 95% 95%;
-  background-size: 280px;
+  background-image: url(cover_image.png);
+  /*background-position: 95% 95%;*/
+  background-size: cover;
   background-color: #003366;
   text-align:left;
   vertical-align: top;
