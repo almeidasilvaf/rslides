@@ -426,7 +426,38 @@ GmPR-1-1, GmPR-1-16 and GmPR-1-18 were upregulated in the greatest number of bio
 
 ---
 
-## Want more details? Read the preprint!
+## Conclusions
+
+<br />
+- Soybean genome has a PR-1 repertoire of 24 genes
+
+--
+
+- There are 2 phylogenetically distinct *GmPR-1* groups.
+
+--
+
+- Protein structures (primary and tertiary) are highly conserved, except *GmPR-1-14*.
+
+--
+
+- Evolution of *GmPR-1* genes is constrained by strong purifying selection.
+
+--
+
+- Major stress-related TF families regulate the expression of *GmPR-1* genes (WRKY, NAC, C2H2, ERF)
+
+--
+
+- Overall, *GmPR-1* genes are responsive to a myriad of biotic and abiotic stresses.
+
+--
+
+- We pinpointed 6 genes that are promising targets for biotechnological applications.
+
+---
+
+## Interested in more details?
 
 <br />
 ```{r fig.align='center', out.width='80%'}
@@ -434,6 +465,21 @@ knitr::include_graphics("figs/pr1/preprint.png")
 ```
 
 .center[.n[https://www.biorxiv.org/content/10.1101/2021.03.27.437342v1]]
+
+---
+
+background-image: url(https://secure-ecsd.elsevier.com/covers/80/Tango2/large/25901583.jpg)
+background-position: 85% 50%
+background-size: 25%
+
+## Interested in more details?
+
+<br />
+.font120[
+Recently accepted in Gene. 
+
+Final version will be available soon.
+]
 
 ---
 
