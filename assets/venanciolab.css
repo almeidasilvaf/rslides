@@ -76,11 +76,17 @@ To specify the margin of the first title h1
 }
 .sydney-yellow {
   background-color: #FFB800;
+  color: #003366;
 }
 .sydney-red {
   background-color: #e64626;
   color: white;
 }
+.sydney-grey {
+  background-color: #E5E7E9;
+  color: #0B6623;
+}
+
 /* segue */
 .segue {
   text-align:center;

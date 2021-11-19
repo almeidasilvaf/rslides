@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Bioinformatics in Modern Biology: computational genomics as a tool to unravel soybean genome and gene regulation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Fabricio Almeida-Silva @almeidasilvaf" />
+    <meta name="date" content="2021-11-22" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra_fit-screen-0.2.6/fit-screen.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+    <script src="libs/d3-4.5.0/d3.min.js"></script>
+    <script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+    <link rel="stylesheet" href="assets/venanciolab-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/venanciolab.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Bioinformatics in Modern Biology: computational genomics as a tool to unravel soybean genome and gene regulation
+### Fabricio Almeida-Silva <span class="citation">@almeidasilvaf</span>
+### PGBV/UENF
+### November 22, 2021
+
+---
+
+
+
+
+
+
+
+
+## Why soybean?
+
+.footnote[Image credit: Kelly Sikkema]
+
+.pull-left[
+&lt;br /&gt;
+.bgb[Food security:] &lt;br /&gt;
+Human and animal nutritional: oil and protein content.
+
+.bgb[Economy:] &lt;br /&gt;
+Soybean exports: 2% of Brazil's GNP .cit[(EMBRAPA, 2020)].
+
+.bgb[Ecology:] &lt;br /&gt;
+Biological nitrogen fixation in root nodules.
+
+]
+
+.pull-right[
+![](https://images.unsplash.com/photo-1572457224112-06d191bb6d01?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=816&amp;q=80)&lt;!-- --&gt;
+
+]
+
+---
+
+background-image: url(figs/sbv/paper_YvdP.png)
+background-position: 95% 80%
+background-size: 45%
+
+## The soybean genome
+
+.footnote[Qiao *et al.*, 2019. Genome Biology | Van de Peer *et al.*, 2021. The Plant Cell]
+
+.pull-left[
+&lt;br /&gt;
+First published in .n[2010].
+
+52,872 genes (latest assembly).
+
+Strong signatures of 2 WGD (polyploidization) events:
+
+  - .bgp[~58 mya:] legume WGD 
+  - .bgp[~13 mya:] Glycine-specific WGD
+  
+Polyploidy provides genomes with the raw material for genetic innovation, especially under rough conditions.
+
+Soybean as a model for evolutionary genomics.
+]
+
+.pull-right[
+&lt;img src="figs/sbv/legume_phylogeny.png" width="572" /&gt;
+]
+
+---
+
+background-image: url(figs/sbv/soybean_functional_genomics.png)
+background-position: 95% 50%
+background-size: 50%
+
+## Soybean functional genomics over the past decade
+
+.footnote[Zhang *et al.*, 2021. Plant Biotechnology Journal]
+
+.pull-left[
+&lt;br /&gt;
+Increasing number of studies to explore:
+
+- genetic diversity
+- trait-associated markers (GWAS)
+- spatiotemporal dynamics of:
+  - gene expression (transcriptomics)
+  - protein accumulation (proteomics)
+  - metabolites (metabolomics)
+  - epigenetic changes (epigenomics)
+]
+
+---
+
+background-image: url(figs/sbv/soybean_functional_genomics.png)
+background-position: 95% 50%
+background-size: 50%
+
+## Soybean functional genomics over the past decade
+
+.footnote[Zhang *et al.*, 2021. Plant Biotechnology Journal]
+
+.pull-left[
+&lt;br /&gt;
+Increasing number of studies to explore:
+
+- genetic diversity
+- trait-associated markers (GWAS)
+- spatiotemporal dynamics of:
+  - .bgb[gene expression (transcriptomics)]
+  - protein accumulation (proteomics)
+  - metabolites (metabolomics)
+  - epigenetic changes (epigenomics)
+]
+
+---
+
+background-image: url(figs/sbv/sea.png)
+background-position: 95% 70%
+background-size: 50%
+
+## The Soybean Expression Atlas
+
+.footnote[Machado *et al.*, 2020. The Plant Journal]
+
+.pull-left[
+&lt;br /&gt;
+Systematic pre-processing and analysis of &gt;.n[1200] RNA-seq samples.
+
+
+]
+
+---
+
+background-image: url(figs/sbv/sea_clustering.png)
+background-position: 95% 50%
+background-size: 40%
+
+## The Soybean Expression Atlas
+
+.footnote[Machado *et al.*, 2020. The Plant Journal]
+
+.pull-left[
+&lt;br /&gt;
+Systematic pre-processing and analysis of &gt;.n[1200] RNA-seq samples.
+
+Overall high-quality of samples. 
+
+Samples cluster into 3 major groups:
+
+- aerial parts
+- underground parts
+- seed and seed-related parts
+
+]
+
+---
+
+background-image: url(figs/sbv/sea_webapp.png)
+background-position: 95% 50%
+background-size: 48%
+
+## The Soybean Expression Atlas
+
+.footnote[Machado *et al.*, 2020. The Plant Journal]
+
+.pull-left[
+&lt;br /&gt;
+Systematic pre-processing and analysis of &gt;.n[1200] RNA-seq samples.
+
+Overall high-quality of samples. 
+
+Samples cluster into 3 major groups:
+
+- aerial parts
+- underground parts
+- seed and seed-related parts
+
+Web interface for easy data download and reuse.
+
+Over .n[200] recurring users, who are mainly from the USA and China.
+
+]
+
+---
+
+## The Soybean Expression Atlas
+
+&lt;br /&gt;
+&lt;img src="figs/sbv/paper_atlas.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: center, inverse, middle
+
+# Are we done yet?
+
+---
+
+background-image: url(figs/sbv/paper_isp_figure1.png)
+background-position: 95% 75%
+background-size: 43%
+
+## Exponential accumulation of RNA-seq data
+
+.footnote[]
+
+.pull-left[
+&lt;br /&gt;
+Dozens of samples are submitted every month.
+
+Most groups generating new transcriptome data are in China,
+the USA, and Brazil.
+
+New versions of the Soybean Expression Atlas will be released biannually.
+
+Soybean Expression Atlas v.n[2.0]:
+- Release in mid-.n[2022]
+- Probably .bgp[3x more samples].
+]
+
+---
+
+class: inverse, center, middle
+
+# Exploring the complexity of soybean (*Glycine max*) transcriptional regulation using global gene co-expression networks
+
+---
+
+background-image: url(figs/sbv/gcn_module.png)
+background-position: 95% 50%
+background-size: 50%
+
+## Motivation
+
+.footnote[Yang *et al.*, 2010. Genome Research]
+
+.pull-left[
+&lt;br /&gt;
+
+Classical transcriptomic studies are limited to particular conditions or case-control setups.
+
+
+Large-scale coexpression networks can reveal patterns that individual studies cannot, such as:
+
+- sets of co-regulated genes and their regulators
+
+- pathways associated with unique transcriptional profiles
+
+- evolutionary trends, especially among duplicated genes.
+
+]
+
+---
+
+## Aims
+
+&lt;br /&gt;
+
+- Unravel biological processes and metabolic pathways associated with each module.
+
+- Identify tissues where each module's expression is enhanced or repressed.
+
+- Predict the regulators of each module's expression.
+
+- Elucidate the fates of duplicated genes at the transcriptional level.
+
+---
+
+background-image: url(figs/sbv/planta_fig1.png)
+background-position: 95% 75%
+background-size: 55%
+
+## Module hubs uncover biological processes associated with specific tissues
+
+.footnote[Almeida-Silva *et al.*, 2020. Planta]
+.pull-left-1[
+&lt;br /&gt;
+9 modules were enriched in GO terms, pathways and protein domains.
+
+.bgb[Guilt-by-association:] Functional prediction of 93 unannotated hubs.
+
+Hubs are enriched in essential genes (i.e. embryonic lethal genes).
+]
+
+---
+
+## Major regulators of important biological processes
+
+.footnote[Almeida-Silva *et al.*, 2020. Planta]
+&lt;br /&gt;
+
+&lt;img src="figs/sbv/planta_tabela1.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+background-image: url(figs/sbv/planta_fig2.png)
+background-position: 95% 70%
+background-size: 50%
+
+## Network topology and the possible fate of soybean duplicated genes
+
+.footnote[Almeida-Silva *et al.*, 2020. Planta]
+.pull-left[
+&lt;br /&gt;
+Most pairs displayed divergent expression profiles or signs of fractionation.
+
+Greater levels of co-occurrence in modules for WGD-derived pairs (especially from the 13 WGD).
+  
+  - Increased retention of WGD duplicates involved in intricate systems.
+  
+Frequency of co-occurrence in modules is higher than the expected by chance.
+
+  - transcriptional similarity of part of the duplicates under selective pressures.
+  
+]
+
+---
+
+## Further reading
+
+.footnote[Almeida-Silva *et al.*, 2020. Planta]
+&lt;br /&gt; 
+&lt;br /&gt;
+&lt;img src="figs/sbv/paper_planta.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, center, middle
+
+# Integration of genome-wide association studies and gene coexpression networks unveils promising soybean resistance genes against five common fungal pathogens
+
+---
+
+## Motivation
+
+.pull-left[
+&lt;br /&gt;
+Fungal diseases in soybean crops lead to annual losses of billions of dollars.
+
+GWAS can identify .bgb[causative SNPs] associated with traits, but not .bgb[causative genes].
+
+Current methods lead to high false-positive and false-negative rates.
+]
+
+.pull-right[
+&lt;img src="figs/pgce/intro_diseases.png" width="884" /&gt;
+]
+
+&lt;br /&gt;
+
+.center[.font130[How do we confidently pick the causative gene(s)?]]
+
+---
+
+## The rationale: guilt-by-association
+
+<div id="htmlwidget-367b9af51a690934d6d3" style="width:1200px;height:600px;" class="forceNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-367b9af51a690934d6d3">{"x":{"links":{"source":[1,2,3,3,4,5,6,7,8,9,11,11,11,11,12,13,14,15,17,18,18,19,19,19,20,20,20,20,21,21,21,21,21,22,22,22,22,22,22,23,23,23,23,23,23,23,23,23,24,24,25,25,25,26,26,26,26,27,27,27,27,27,28,28,29,29,29,30,31,31,31,31,32,33,33,34,34,35,35,35,36,36,36,36,37,37,37,37,37,38,38,38,38,38,38,39,40,41,41,42,42,42,43,43,43,44,44,45,47,48,48,48,48,49,49,50,50,51,51,51,52,52,53,54,54,54,55,55,55,55,55,55,55,55,55,55,56,56,57,57,57,58,58,58,58,58,59,59,59,59,60,60,60,61,61,61,61,61,61,62,62,62,62,62,62,62,62,63,63,63,63,63,63,63,63,64,64,64,64,64,64,64,64,64,64,65,65,65,65,65,65,65,65,65,65,66,66,66,66,66,66,66,66,66,67,68,68,68,68,68,68,69,69,69,69,69,69,69,70,70,70,70,70,70,70,70,71,71,71,71,71,71,71,71,72,72,72,73,74,74,75,75,75,75,75,75,75,76,76,76,76,76,76,76],"target":[0,0,0,2,0,0,0,0,0,0,10,3,2,0,11,11,11,11,16,16,17,16,17,18,16,17,18,19,16,17,18,19,20,16,17,18,19,20,21,16,17,18,19,20,21,22,12,11,23,11,24,23,11,24,11,16,25,11,23,25,24,26,11,27,23,27,11,23,30,11,23,27,11,11,27,11,29,11,34,29,34,35,11,29,34,35,36,11,29,34,35,36,37,11,29,25,25,24,25,41,25,24,11,26,27,28,11,28,46,47,25,27,11,26,11,49,24,49,26,11,51,39,51,51,49,26,51,49,39,54,26,11,16,25,41,48,49,55,55,41,48,55,48,27,57,11,58,55,48,57,48,58,59,48,58,60,59,57,55,55,58,59,48,57,41,61,60,59,48,62,57,58,61,60,55,55,62,48,63,58,61,60,59,57,11,63,64,48,62,58,61,60,59,57,55,64,58,59,62,65,48,63,61,60,57,25,11,24,27,48,41,25,68,11,24,27,48,41,25,69,68,11,24,27,41,58,27,69,68,70,11,48,41,25,26,27,11,48,48,73,69,68,25,48,41,70,71,64,65,66,63,62,48,58],"value":[1,8,10,6,1,1,1,1,2,1,1,3,3,5,1,1,1,1,4,4,4,4,4,4,3,3,3,4,3,3,3,3,5,3,3,3,3,4,4,3,3,3,3,4,4,4,2,9,2,7,13,1,12,4,31,1,1,17,5,5,1,1,8,1,1,1,2,1,2,3,2,1,1,2,1,3,2,3,3,2,2,2,2,1,2,2,2,2,1,2,2,2,2,2,1,1,1,2,3,2,2,1,3,1,1,3,1,2,1,2,1,1,1,3,2,1,1,9,2,2,1,1,1,2,1,1,6,12,1,1,21,19,1,2,5,4,1,1,1,1,1,7,7,6,1,4,15,5,6,2,1,4,2,2,6,2,5,1,1,9,17,13,7,2,1,6,3,5,5,6,2,4,3,2,1,5,12,5,4,10,6,2,9,1,1,5,7,3,5,5,5,2,5,1,2,3,3,1,2,2,1,1,1,1,3,5,1,1,1,1,1,6,6,1,1,2,1,1,4,4,4,1,1,1,1,1,1,2,2,2,1,1,1,1,2,1,1,2,2,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["Myriel","Napoleon","Mlle.Baptistine","Mme.Magloire","CountessdeLo","Geborand","Champtercier","Cravatte","Count","OldMan","Labarre",null,"Marguerite","Mme.deR","Isabeau","Gervais","Tholomyes","Listolier","Fameuil","Blacheville","Favourite","Dahlia","Zephine","Fantine","Mme.Thenardier","Thenardier","Cosette","Javert","Fauchelevent","Bamatabois","Perpetue","Simplice","Scaufflaire","Woman1","Judge","Champmathieu","Brevet","Chenildieu","Cochepaille","Pontmercy","Boulatruelle","Eponine","Anzelma","Woman2","MotherInnocent","Gribier","Jondrette","Mme.Burgon","Gavroche","Gillenormand","Magnon","Mlle.Gillenormand","Mme.Pontmercy","Mlle.Vaubois","Lt.Gillenormand","Marius","BaronessT","Mabeuf","Enjolras","Combeferre","Prouvaire","Feuilly","Courfeyrac","Bahorel","Bossuet","Joly","Grantaire","MotherPlutarch","Gueulemer","Babet","Claquesous","Montparnasse","Toussaint","Child1","Child2","Brujon","Mme.Hucheloup"],"group":[1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal().domain([\"1\", \"2\"]).range([\"steelblue\", \"maroon\"])","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":50,"linkWidth":"function(d) { return Math.sqrt(d.value); }","charge":-30,"opacity":0.9,"zoom":false,"legend":false,"arrows":false,"nodesize":false,"radiusCalculation":" Math.sqrt(d.nodesize)+6","bounded":false,"opacityNoHover":0,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## Aim
+
+&lt;br /&gt;
+.center[.font120[Identify high-confidence candidate genes involved in resistance to fungal diseases by integrating GWAS and coexpression networks]]
+
+----
+
+.font160[ .brand-blue[ Challenges] ] 
+
+- Inferring coexpression networks is very hard, especially due to data pre-processing.
+- Lack of existing methods to integrate GWAS and coexpression networks as we wanted.
+
+---
+
+## Aim
+
+&lt;br /&gt;
+.center[.font120[Identify high-confidence candidate genes involved in resistance to fungal diseases by integrating GWAS and coexpression networks]]
+
+----
+
+.font160[ .brand-blue[ Challenges] ]
+
+- .bgp[Inferring coexpression networks is very hard, especially due to data pre-processing.]
+- Lack of existing methods to integrate GWAS and coexpression networks as we wanted.
+
+
+---
+
+class: sydney-yellow, middle
+background-image: url(figs/sbv/bionero_logo.png)
+background-position: 95% 50%
+background-size: 35%
+
+.pull-left-2[
+## .bold[.dark-blue[BioNERO: an all-in-one R/Bioconductor package for comprehensive and easy biological network reconstruction]]
+]
+
+---
+
+background-image: url(figs/sbv/bionero_workflow.png)
+background-position: 97% 50%
+background-size: 55%
+
+## BioNERO
+
+.footnote[Almeida-Silva *et al.*, 2021. Functional and Integrative Genomics]
+
+.pull-left[
+&lt;br /&gt;
+R/Bioconductor package that features:
+- expression data preprocessing
+- gene coexpression network inference
+- gene regulatory network inference
+- module detection and network statistics
+- functional analyses
+- network visualization
+- network comparison
+]
+
+---
+
+background-image: url(figs/sbv/bionero_plots.png)
+background-position: 97% 50%
+background-size: 50%
+
+## BioNERO
+
+.footnote[Almeida-Silva *et al.*, 2021. Functional and Integrative Genomics]
+
+.pull-left[
+&lt;br /&gt;
+R/Bioconductor package that features:
+- expression data preprocessing
+- gene coexpression network inference
+- gene regulatory network inference
+- module detection and network statistics
+- functional analyses
+- network visualization
+- network comparison
+]
+
+---
+
+## BioNERO
+
+&lt;br /&gt;
+.footnote[Almeida-Silva *et al.*, 2021. Functional and Integrative Genomics]
+
+&lt;img src="figs/sbv/bionero_table1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+.center[BioNERO outperforms all existing network inference-related packages.]
+
+---
+
+## BioNERO
+
+
+&lt;img src="figs/sbv/bionero_stats.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Further reading
+
+&lt;br /&gt;
+&lt;br /&gt;
+
+&lt;img src="figs/sbv/paper_bionero.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Aim
+
+&lt;br /&gt;
+.center[.font120[Identify high-confidence candidate genes involved in resistance to fungal diseases by integrating GWAS and coexpression networks]]
+
+----
+
+.font160[ .brand-blue[ Challenges] ] 
+
+- ✅ &amp;nbsp;Inferring coexpression networks is very hard, especially due to data pre-processing.
+- .bgp[Lack of existing methods to integrate GWAS and coexpression networks as we wanted.]
+
+---
+
+class: sydney-grey, middle
+background-image: url(figs/sbv/cageminer_logo.png)
+background-position: 95% 50%
+background-size: 35%
+
+.pull-left-2[
+## .bold[cageminer: an R/Bioconductor package to prioritize candidate genes by integrating GWAS and gene coexpression networks]
+]
+
+---
+
+## cageminer
+
+&lt;img src="https://github.com/almeidasilvaf/bioc2021/blob/master/figs/Fig1.png?raw=true" width="95%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## cageminer
+
+&lt;img src="figs/sbv/cageminer_stats.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Further reading
+
+&lt;br /&gt;
+&lt;br /&gt;
+
+&lt;img src="figs/sbv/paper_cageminer.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Aim
+
+&lt;br /&gt;
+.center[.font120[Identify high-confidence candidate genes involved in resistance to fungal diseases by integrating GWAS and coexpression networks]]
+
+----
+
+.font160[ .brand-blue[ Challenges] ] 
+
+- ✅ &amp;nbsp;Inferring coexpression networks is very hard, especially due to data pre-processing.
+- ✅ &amp;nbsp;Lack of existing methods to integrate GWAS and coexpression networks as we wanted.
+
+.center[.font140[Good to go!]]
+
+---
+
+background-image: url(https://github.com/almeidasilvaf/GCN_GWAS_fungi/blob/main/figs/frequency_of_snps_and_transcriptome_samples_overlap.png?raw=true)
+background-position: 95% 50%
+background-size: 45% 90%
+
+## Data overview
+
+&lt;br /&gt;
+
+.pull-left[
+.brand-charcoal[.font130[.bold[Filtering criterion:]]]
+
+A species must be represented by:
+- transcriptome samples
+- GWAS-derived SNPs
+]
+
+---
+
+background-image: url(figs/pgce/pathogens.png)
+background-size: 80%
+background-position: 50% 70%
+
+## Data overview
+
+.footnote[Source: Crop Protection Network | Chiotta *et al.*, 2016 | Daren Mueller | Elevagro | Agrolink]
+
+---
+
+## Prioritized candidate genes
+
+.pull-left[
+
+&lt;br /&gt;
+
+- *Cadophora gregata:* **11** 
+
+- *Fusarium graminearum:* **59** 
+
+- *Fusarium virguliforme:* **191** 
+
+- *Macrophomina phaseolina:* **8** 
+
+- *Phakopsora pachyrhizi:* **3** 
+
+Highly .bgp[species-specific] response.
+
+]
+
+.pull-right[
+![](https://github.com/almeidasilvaf/GCN_GWAS_fungi/blob/main/figs/venn_diagram_candidates.png?raw=true)&lt;!-- --&gt;
+]
+
+---
+
+background-image: url(figs/pgce/Fig3.png)
+background-size: 50%
+background-position: 95% 50%
+
+## A network of processes
+
+&lt;br /&gt;
+.pull-left[
+Both well-known and novel candidates.
+
+Most candidates likely involved in .bgp[defense signaling].
+
+Hidden treasure? 8% of the candidates encode proteins of unknown function.
+
+]
+
+---
+
+background-image: url(figs/pgce/table_top_genes.png)
+background-position: 95% 65%
+background-size: 45%
+
+## Promising targets for genetic engineering
+
+&lt;br /&gt;
+.pull-left[
+Candidates were scored and ranked with:
+
+.font140[
+`$$CS_i = r_{pb} \kappa$$`
+] 
+
+where:
+
+`$$\kappa = 2 \text{ if the gene is a transcription factor}$$`
+
+`$$\kappa = 2 \text{ if the gene is a hub}$$` 
+
+`$$\kappa = 3 \text{ if the gene is a hub and a transcription factor}$$`
+
+]
+
+---
+
+## Potential accessions in the USDA germplasm
+
+&lt;br /&gt;
+
+**Goal:** .bgb[largest] number of .bgb[resistance SNPs] and .bgr[smallest] number of .bgr[susceptibility SNPs].
+
+&lt;br /&gt;
+
+--
+
+.pull-left[
+
+
+.font140[
+.blue[.bold[A &amp;rarr; G]] 😀 👍🏼  
+
+GG = 2
+
+AG = 1
+
+AA = 0
+]
+]
+
+--
+
+.pull-right[
+
+.font140[
+.red[.bold[A &amp;rarr; G]] 😨 👎🏻  
+
+GG = 0
+
+AG = 1
+
+AA = 2 
+]
+]
+
+---
+
+background-image: url(figs/pgce/top_accessions.png)
+background-position: 95% 50%
+
+## Potential accessions in &lt;br /&gt; the USDA germplasm
+
+&lt;br /&gt;
+.pull-left[
+
+`$$S_{total} = \sum\limits_{i=1}^nS_i \text{ where }S_i = \{0,1,2\}$$`
+
+.font110[Main findings:]
+
+- There is still room for alelle pyramiding
+- Best accessions can be improved through MAS-based breeding or genetic engineering
+
+]
+
+---
+
+## A web app to facilitate data reuse
+
+Users can explore the coexpression network we inferred at https://soyfungigcn.venanciogroup.uenf.br.
+
+&lt;iframe src="https://soyfungigcn.venanciogroup.uenf.br/" width='100%' height='80%' title="SoyFungiGCN"&gt;
+
+---
+
+## Further reading
+
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src="figs/sbv/paper_soyfungigcn.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Conclusion and take-home messages
+
+&lt;br /&gt;
+- The Soybean Expression Atlas is one the largest plant transcriptome databases.
+
+--
+
+- Gene networks are great tools to .bgb[surf the transcriptomic data tsunami], with a plethora of possible applications (from evolutionary analyses to gene discovery).
+
+--
+
+- **BioNERO** makes network inference and analysis fairly easy tasks.
+
+--
+
+- **cageminer** can (and probably will) be used to mine candidate genes associated with many other important traits.
+
+--
+
+- As new data are generated, sequencing becomes less useful. Extracting knowledge from existing data is our current challenge.
+
+---
+
+background-image: url(figs/sbv/acknowledgements.jpg)
+background-size: contain
+
+---
+
+class: sydney-yellow, middle, center
+
+## You can find me at:
+
+&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"&gt;&lt;/path&gt;&lt;/svg&gt;  [fabricio_almeidasilva@hotmail.com](mailto:fabricio_almeidasilva@hotmail.com)
+
+&lt;svg viewBox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"&gt;&lt;/path&gt;&lt;/svg&gt;  [almeidasilvaf.github.io](https://almeidasilvaf.github.io/)
+
+
+&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"&gt;&lt;/path&gt;&lt;/svg&gt;  [@almeidasilvaf](https://twitter.com/almeidasilvaf)
+
+
+&lt;svg viewBox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"&gt;&lt;/path&gt;&lt;/svg&gt;  [almeidasilvaf](https://github.com/almeidasilvaf/)
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "18:10",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
