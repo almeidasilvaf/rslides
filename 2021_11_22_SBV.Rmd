@@ -231,7 +231,7 @@ background-size: 43%
 
 ## Exponential accumulation of RNA-seq data
 
-.footnote[]
+.footnote[Almeida-Silva *et al.*, 2021. in silico Plants]
 
 .pull-left[
 <br />
@@ -795,6 +795,13 @@ knitr::include_graphics("figs/sbv/paper_soyfungigcn.png")
 
 background-image: url(figs/sbv/acknowledgements.jpg)
 background-size: contain
+
+---
+
+background-image: url(figs/sbv/future_steps.jpg)
+background-size: contain
+
+## A new adventure
 
 ---
 
