@@ -41,6 +41,11 @@ https://www.slant.co/versus/224/287/~source-code-pro_vs_roboto-mono
   color: #2B2D2C;
 }
 
+.bg-bluebox {
+  background-color: #A9CCE3;
+  color: black;
+}
+
 body { 
   font-family: 'Atkinson Hyperlegible', 'Roboto', Arial, sans-serif;
 }
@@ -166,7 +171,7 @@ h1, h2, h3 {
 .gray { color: gray; }
 .grey { color: gray; }
 .dark-orange { color: #ff6600 }
-
+.coffee { color: #6F4E37 }
 
 
 .bold { font-weight: bold; }
