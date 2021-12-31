@@ -38,6 +38,14 @@ xaringanExtra::use_fit_screen()
 xaringanExtra::use_panelset()
 ```
 
+```{r scribble, echo=FALSE}
+xaringanExtra::use_scribble()
+```
+
+```{r tile_view, echo=FALSE}
+xaringanExtra::use_tile_view()
+```
+
 ## Why soybean?
 
 .footnote[Image credit: Kelly Sikkema]
@@ -45,7 +53,7 @@ xaringanExtra::use_panelset()
 .pull-left[
 <br />
 .bgb[Food security:] <br />
-Human and animal nutritional: oil and protein content.
+Human and animal nutrition: oil and protein content.
 
 .bgb[Economy:] <br />
 Soybean exports: 2% of Brazil's GNP .cit[(EMBRAPA, 2020)].
@@ -131,7 +139,7 @@ background-size: 45%
 <br />
 Annual loss of billions of dollars .cit[(Osman et al., 2015)].
 
-**Phytopathogenic fungi** -  yield loss due to:
+**Pathogens and pests** -  yield loss due to:
 
 1. Leaf damage
 
@@ -139,7 +147,9 @@ Annual loss of billions of dollars .cit[(Osman et al., 2015)].
 
 3. Seed damage
 
-4. Death
+4. Reduced biomass
+
+5. Death
 
 .n[2030] Agenda: sustainable increase in crop yield.
 
@@ -154,6 +164,7 @@ background-size: 70%
 ## Biotic stresses in soybean crops
 
 <br />
+.footnote[Bandara *et al.*, 2020. PLoS One]
 Diseases lead to an average annual loss of US$ 4.55 billions.
 
 ---
@@ -165,6 +176,8 @@ background-size: 70%
 ## Biotic stresses in soybean crops
 
 <br />
+.footnote[Bandara *et al.*, 2020. PLoS One]
+
 Fungi and nematodes are the main concern.
 
 ---
@@ -328,7 +341,7 @@ forceNetwork(Links = MisLinks, Nodes = MisNodes,
 ## Aim
 
 <br />
-.center[.font120[Identify high-confidence candidate genes involved in resistance to fungal diseases by integrating GWAS and coexpression networks]]
+.center[.font120[Identify high-confidence candidate genes involved in resistance to biotic stresses by integrating GWAS and coexpression networks]]
 
 ----
 
@@ -548,7 +561,7 @@ knitr::kable(bionero_stats)
 
 ---
 
-class: sydney-grey, middle
+class: sydney-purple, middle
 background-image: url(figs/sbv/cageminer_logo.png)
 background-position: 95% 50%
 background-size: 35%
@@ -642,6 +655,22 @@ background-size: 35%
 ## .bold[Integration of genome-wide association studies and gene coexpression networks unveils promising soybean resistance genes against five common fungal pathogens]
 ]
 
+---
+
+## Chapter status: Published
+
+<br>
+
+```{r fig.align='center', out.width='80%'}
+knitr::include_graphics("figs/msc_thesis/paper_soyfungigcn.png")
+```
+
+---
+
+background-image: url(figs/pgce/methods.png)
+background-size: contain
+
+## Methods
 
 ---
 
@@ -651,6 +680,7 @@ background-size: 45% 90%
 
 ## Data overview
 
+.footnote[Almeida-Silva *et al.*, 2021. Scientific Reports]
 <br />
 
 .pull-left[
@@ -673,8 +703,39 @@ background-position: 50% 70%
 
 ---
 
+## SNPs cluster in gene-rich regions
+
+.footnote[Almeida-Silva *et al.*, 2021. Scientific Reports]
+
+```{r out.width = '50%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/ch3_fig1B.png")
+```
+
+---
+
+## Unequal SNP distribution across chromosomes
+
+.footnote[Almeida-Silva *et al.*, 2021. Scientific Reports]
+<br> <br>
+```{r out.width = '100%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/ch3_fig1C.png")
+```
+
+---
+
+## Most SNPs are located in intergenic regions
+
+.footnote[Almeida-Silva *et al.*, 2021. Scientific Reports]
+<br> <br>
+```{r out.width = '100%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/ch3_fig1D.png")
+```
+
+---
+
 ## Prioritized candidate genes
 
+.footnote[Almeida-Silva *et al.*, 2021. Scientific Reports]
 .pull-left[
 
 <br />
@@ -707,6 +768,7 @@ background-position: 95% 50%
 
 ## A network of processes
 
+.footnote[Almeida-Silva *et al.*, 2021. Scientific Reports]
 <br />
 .pull-left[
 Both well-known and novel candidates.
@@ -725,23 +787,40 @@ background-size: 45%
 
 ## Promising targets for genetic engineering
 
+.footnote[Almeida-Silva *et al.*, 2021. Scientific Reports]
 <br />
 .pull-left[
-Candidates were scored and ranked with:
+Candidates were scored and ranked with {cageminer}'s algorithm:
 
 .font140[
 $$CS_i = r_{pb} \kappa$$
-] 
+]
 
-where:
-
-$$\kappa = 2 \text{ if the gene is a transcription factor}$$
-
-$$\kappa = 2 \text{ if the gene is a hub}$$ 
-
-$$\kappa = 3 \text{ if the gene is a hub and a transcription factor}$$
+Candidates can be further validated to assess how much (if any) resistance they confer.
 
 ]
+
+---
+
+## Most candidates are core genes
+
+<br><br>
+.footnote[Almeida-Silva *et al.*, 2021. Scientific Reports]
+
+```{r out.width = '100%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/ch3_sf1A.png")
+```
+
+---
+
+## Population structure does not explain PAV patterns
+
+<br><br>
+.footnote[Almeida-Silva *et al.*, 2021. Scientific Reports]
+
+```{r out.width = '100%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/ch3_sf1B.png")
+```
 
 ---
 
@@ -750,8 +829,6 @@ $$\kappa = 3 \text{ if the gene is a hub and a transcription factor}$$
 <br />
 
 **Goal:** .bgb[largest] number of .bgb[resistance SNPs] and .bgr[smallest] number of .bgr[susceptibility SNPs].
-
-<br />
 
 --
 
@@ -784,6 +861,17 @@ AA = 2
 ]
 ]
 
+--
+
+.pull-center[
+.content-box-green[
+.brand-charcoal[**Disclaimers:**]
+
+- additive effects, no dominance
+- epistasis and different effect sizes are not accounted for.
+]
+]
+
 ---
 
 background-image: url(figs/pgce/top_accessions.png)
@@ -798,7 +886,7 @@ $$S_{total} = \sum\limits_{i=1}^nS_i \text{ where }S_i = \{0,1,2\}$$
 
 .font110[Main findings:]
 
-- There is still room for alelle pyramiding
+- There is still room for allele pyramiding
 - Best accessions can be improved through MAS-based breeding or genetic engineering
 
 ]
@@ -813,36 +901,267 @@ Users can explore the coexpression network we inferred at https://soyfungigcn.ve
 
 ---
 
-## Further reading
+class: sydney-yellow2, middle
+background-image: url(figs/msc_thesis/SoyPestGCN_logo.png)
+background-position: 95% 50%
+background-size: 35%
 
-<br />
-<br />
-```{r fig.align='center', out.width='90%'}
-knitr::include_graphics("figs/sbv/paper_soyfungigcn.png")
+.pull-left-2[
+
+## Chapter #4
+
+## .bold[Discovering and prioritizing candidate resistance genes against soybean pests by integrating GWAS and gene coexpression networks]
+]
+
+---
+
+## Chapter status: In preparation
+
+<br>
+```{r out.width = '100%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/paper_soypestgcn.png")
 ```
 
 ---
 
-## Conclusion and take-home messages
+background-image: url(figs/soypestgcn/frequency_of_snps_and_transcriptome_samples_overlap.png)
+background-position: 95% 50%
+background-size: 45% 90%
+
+## Data overview
 
 <br />
-- The Soybean Expression Atlas is one the largest plant transcriptome databases.
+
+.pull-left[
+.brand-charcoal[.font130[.bold[Filtering criterion:]]]
+
+A species must be represented by:
+- transcriptome samples
+- GWAS-derived SNPs
+]
+
+---
+
+## Data overview
+
+```{r fig.align='center'}
+knitr::include_graphics("figs/soypestgcn/species.jpg")
+```
+
+&emsp;&emsp;&emsp;&nbsp; .font130[*Aphis glycines*] 
+&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; .font130[*Heterodera glycines*]
+&emsp;&emsp;&emsp;&emsp;&emsp; .font130[*Spodoptera litura*]
+
+.footnote[Source: Soybean research and information network | Campo e Negócio | Syngenta]
+
+---
+
+## SNPs cluster in gene-rich regions
+
+
+```{r out.width = '50%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/ch4_fig1B.png")
+```
+
+---
+
+## Unequal SNP distribution across chromosomes
+
+<br>
+```{r out.width = '100%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/ch4_fig1C.png")
+```
+
+---
+
+## Most SNPs in intergenic regions, but many in genes
+
+<br> <br>
+```{r out.width = '100%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/ch4_fig1D.png")
+```
 
 --
 
-- Gene networks are great tools to .bgb[surf the transcriptomic data tsunami], with a plethora of possible applications (from evolutionary analyses to gene discovery).
+.center[.brand-charcoal[*"What are the functional consequences of SNPs in genes?"*]]
 
---
+---
 
+## Functional consequences of SNPs in exons and introns
+
+<br>
+**.brand-charcoal[Exons:]**
+.pull-left[
+.content-box-red[
+*Aphis glycines:*
+
+- 31% nonsynonymous substitutions
+- 69% synonymous substitutions
+
+<br>
+]
+]
+
+.pull-right[
+.content-box-yellow[
+*Heterodera glycines:*
+
+- 63% nonsynonymous substitutions
+- 31% synonymous substitutions
+- 6% nonsense substitutions
+
+]
+]
+
+<br>
+**.brand-charcoal[Introns:]**
+
+None of the SNPs were in splice sites.
+
+<br>
+.center[.brand-charcoal[How do they affect resistance, then?]]
+
+---
+
+## Functional consequences of SNPs in exons and introns
+
+.footnote[Matharu and Ahituv, 2015]
+<br>
+```{r out.width = '42%', fig.align = 'center'}
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Structural_organization_of_chromatin.png/800px-Structural_organization_of_chromatin.png")
+```
+
+.center[.brand-charcoal[**Possible explanation:**] Long-range interactions that regulate transcription.]
+
+---
+
+## Prioritized candidate genes
+
+.pull-left-1[
+
+<br />
+
+- *A. glycines:* **171** 
+
+- *S. litura:* **7** 
+
+- *H. glycines:* **228** 
+
+Significant overlap of candidate genes between insects, but not between insects and nematodes.
+
+]
+
+.pull-right-2[
+```{r venn2, echo=FALSE}
+knitr::include_graphics("figs/msc_thesis/ch4_fig2.png")
+```
+]
+
+---
+
+background-image: url(figs/msc_thesis/ch4_fig3.png)
+background-size: 50%
+background-position: 95% 50%
+
+## A network of processes
+
+<br />
+.pull-left[
+Both well-known and novel candidates.
+
+Most candidates likely involved in .bgp[signaling]. .bgp[oxidative stress], and .bgp[transcriptional regulation].
+
+14.78% (55/372) of the candidates encode proteins of unknown function.
+
+]
+
+---
+
+background-image: url(figs/msc_thesis/ch4_table2.png)
+background-position: 95% 65%
+background-size: 55%
+
+## Promising targets for genetic engineering
+
+<br />
+.pull-left[
+Candidates were scored and ranked with:
+
+.font140[
+$$CS_i = r_{pb} \kappa$$
+] 
+
+Candidates can be further validated to assess how much (if any) resistance they confer.
+
+]
+
+---
+
+## Most candidates are core genes
+
+<br><br>
+
+```{r out.width = '100%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/ch4_sf1A.png")
+```
+
+---
+
+## Population structure does not explain PAV patterns
+
+<br><br>
+
+```{r out.width = '100%', fig.align = 'center'}
+knitr::include_graphics("figs/msc_thesis/ch4_sf1B.png")
+```
+
+---
+
+background-image: url(figs/msc_thesis/ch4_table3.png)
+background-position: 95% 50%
+background-size: 55%
+
+## Potential accessions in <br /> the USDA germplasm
+
+<br />
+.pull-left[
+
+$$S_{total} = \sum\limits_{i=1}^nS_i \text{ where }S_i = \{0,1,2\}$$
+
+.font110[Main findings:]
+
+- There is still room for allele pyramiding
+- Best accessions can be improved through MAS-based breeding or genetic engineering
+
+]
+
+---
+
+## A web app to facilitate data reuse
+
+Users can explore the coexpression network we inferred at https://soypestgcn.venanciogroup.uenf.br.
+
+<iframe src="https://soypestgcn.venanciogroup.uenf.br/" width='100%' height='80%' title="SoyPestGCN">
+
+---
+
+## Conclusions
+
+<br />
 - **BioNERO** makes network inference and analysis fairly easy tasks.
 
 --
 
-- **cageminer** can (and probably will) be used to mine candidate genes associated with many other important traits.
+- **cageminer** can mine candidate genes associated with quantitative traits.
 
 --
 
-- As new data are generated, sequencing becomes less useful. Extracting knowledge from existing data is our current challenge.
+- The candidate gene sets found in **Chapter 3** and **Chapter 4** are promising targets for biotechnological applications.
+
+--
+
+- We found promising accessions in the USDA germplasm that can be used in breeding programs and gene editing initiatives to insert missing alleles.
+
 
 ---
 
@@ -856,6 +1175,7 @@ class: sydney-yellow, middle, center
 ## You can find me at:
 
 `r icons::fontawesome("envelope")`  [fabricio_almeidasilva@hotmail.com](mailto:fabricio_almeidasilva@hotmail.com)
+
 
 `r icons::fontawesome("globe")`  [almeidasilvaf.github.io](https://almeidasilvaf.github.io/)
 

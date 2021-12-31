@@ -54,51 +54,11 @@ To specify the margin of the first title h1
   width: 60%;
 }
 
-/****************
-   Animations
-****************/
-
-.animate {
-  bottom: 15%;
-  position: absolute;
-  -webkit-animation: linear infinite;
-  -webkit-animation-name: run;
-  -webkit-animation-duration: 5s;
+.pull-center {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.animate.figure {
-  animation-name: animate-figure;
-  animation-timing-function: ease;
-}
-
-@keyframes animate-figure {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: 50%;
-  }
-}
-
-#fig-enter {
-  bottom: 15%;
-  position: absolute;
-  -webkit-animation: linear;
-  -webkit-animation-name: run;
-  -webkit-animation-duration: 3s;
-}
-
-@-webkit-keyframes run {
-  0% {
-    left: 100%;
-  }
-  
-  100% {
-    left: 80%;
-  }
-  
-}
-
 
 
 /* use to position text at the bottom */
@@ -136,6 +96,16 @@ To specify the margin of the first title h1
 .sydney-green {
   background-color: #BAD68C;
   color: #452F19;
+}
+
+.sydney-purple {
+  background-color: #c0a8bf;
+  color: #0B6623;
+}
+
+.sydney-yellow2 {
+  background-color: #e3ca46;
+  color: #2a5980;
 }
 
 /* segue */
