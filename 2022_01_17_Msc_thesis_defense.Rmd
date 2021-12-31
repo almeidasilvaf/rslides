@@ -1079,7 +1079,7 @@ Most candidates likely involved in .bgp[signaling]. .bgp[oxidative stress], and 
 
 background-image: url(figs/msc_thesis/ch4_table2.png)
 background-position: 95% 65%
-background-size: 55%
+background-size: 50%
 
 ## Promising targets for genetic engineering
 
@@ -1119,7 +1119,6 @@ knitr::include_graphics("figs/msc_thesis/ch4_sf1B.png")
 
 background-image: url(figs/msc_thesis/ch4_table3.png)
 background-position: 95% 50%
-background-size: 55%
 
 ## Potential accessions in <br /> the USDA germplasm
 
