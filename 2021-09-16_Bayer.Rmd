@@ -4,7 +4,7 @@ title: |
   Softwares and data products
 author: "Fabrício Almeida-Silva"
 institute: "Venancio lab - PGBV/CBB/UENF"
-date: "September 16, 2021"
+date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -124,6 +124,7 @@ coldata %>%
 
 <br />
 ```{r fig.width=10, fig.height=5, out.width='85%'}
+suppressPackageStartupMessages(library(tidyverse))
 metadata <- readr::read_csv("~/Downloads/SraRunTable.txt")
 metadata %>%
   mutate(year = lubridate::year(ReleaseDate)) %>%
@@ -134,7 +135,8 @@ metadata %>%
   labs(
     title = "Number of BioSamples for each year",
     x = "Year", y = "# of samples"
-  )
+  ) +
+  scale_x_discrete(limits = 2010:2022)
 ```
 
 ---
